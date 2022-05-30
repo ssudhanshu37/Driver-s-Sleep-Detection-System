@@ -5,25 +5,17 @@ import numpy as np
 from scipy.spatial import distance 
 
 
-def compute_EAR(vec):
+def compute_EAR(vec): #to calculate distance between eyelids
 
 	a = distance.euclidean(vec[1], vec[5])
 	b = distance.euclidean(vec[2], vec[4])
 	c = distance.euclidean(vec[0], vec[3])
-	# compute EAR
+	# compute EAR(Eye Aspect Ratio)
 	ear = (a + b) / (2.0 * c)
 
 	return ear
 
 
-
-if len(sys.argv) != 3:
-    print(
-        "execute this program by running: \n"
-        "python sleep_detection.py  ./face_landmark_detection.py shape_predictor_68_face_landmarks.dat /path/to/image.jpg"
-        "You can download a trained facial shape predictor from:\n "
-        "http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2")
-    exit()
 
 predictor_path = sys.argv[1]
 image_path = sys.argv[2]
